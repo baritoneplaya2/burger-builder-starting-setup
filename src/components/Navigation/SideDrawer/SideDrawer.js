@@ -7,7 +7,9 @@ const sideDrawer = (props) => {
     // ... animation when it opens and closed
     return (
         <div className={classes.sideDrawer}>
-            <Logo />
+            <div className={classes.Logo}>
+                <Logo />
+            </div>
             <nav>
                 <NavigationItems />
             </nav>
