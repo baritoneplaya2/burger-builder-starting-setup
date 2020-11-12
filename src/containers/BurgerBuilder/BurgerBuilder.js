@@ -21,16 +21,18 @@ class BurgerBuilder extends Component {
     //     this.state = {...}
     // }
     state = {
-        ingredients: {
-            salad: 0,
-            bacon: 0,
-            cheese: 0,
-            meat: 0
-        },
+        ingredients: null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
         loading: false
+    }
+
+    componentDidMount () {
+        axios.get('https://react-my-burger-5774f.firebaseio.com/ingredients.json');
+            .then(response => {
+                this.setState({ingredients: response.data});
+            });
     }
 
     updatePurchaseState (ingredients) {
